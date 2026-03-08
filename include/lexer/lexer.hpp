@@ -47,7 +47,7 @@ inline const std::string alpha_regex() {
 }
 inline const std::string int_lit_regex() {
     std::string ret;
-    ret.append("((\\++-+\\e)(0+");
+    ret.append("((0+");
     ret.append(numeric_without_zero_regex());
     ret.append(numeric_regex());
     ret.append("*))");
@@ -66,7 +66,7 @@ inline const std::string float_lit_regex() {
     ret.append(int_lit);
     ret.append("\\.(\\e+");
     ret.append(int_lit);
-    ret.append("))(\\e+(e+E)");
+    ret.append("))(\\e+(e+E)(\\e+\\++-)");
     ret.append(int_lit);
     ret.append("))");
     return ret;

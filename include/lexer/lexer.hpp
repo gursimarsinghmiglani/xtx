@@ -169,7 +169,12 @@ inline std::vector<Lexeme> maximal_munch(std::string& source) {
             if (failed[pos][state]) {
                 break;
             }
-            state = dfa.delta[state][static_cast<unsigned char>(source[pos])];
+            unsigned char x = static_cast<unsigned char>(source[pos]);
+            if (x & 0x80) {
+                std::cerr << "Lexical error in line " << line_number << " at position " << pos_within_line << "\n";
+                std::exit(1);
+            }
+            state = dfa.delta[state][x];
             if (dfa.token_types[state] != Token::TOK_ERROR) {
                 s = std::stack<std::pair<int, int>>();
                 last_accepting_state = state;

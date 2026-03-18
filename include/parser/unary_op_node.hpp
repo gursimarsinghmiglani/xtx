@@ -1,6 +1,2 @@
 #pragma once
-enum class UnaryOpNode {
-    MINUS,
-    NOT,
-    BITWISE_NOT
-};
+enum class UnaryOpNode { MINUS, NOT, BITWISE_NOT };

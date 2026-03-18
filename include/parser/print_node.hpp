@@ -1,5 +1,2 @@
 #pragma once
-enum class PrintNode {
-    PRINT,
-    PRINTLN
-};
+enum class PrintNode { PRINT, PRINTLN };

@@ -1,73 +1,69 @@
 #pragma once
-#define TOKEN_LIST \
-    X(TOK_FN) \
-    X(TOK_LET) \
-    X(TOK_RETURN) \
-    X(TOK_PRINT) \
-    X(TOK_PRINTLN) \
-    X(TOK_GLOBAL) \
-    X(TOK_CONST) \
-    X(TOK_MATRIX) \
-    X(TOK_VECTOR) \
-    X(TOK_INT) \
-    X(TOK_FLOAT) \
-    X(TOK_BOOL) \
-    X(TOK_IF) \
-    X(TOK_ELSE) \
-    X(TOK_RANGE) \
-    X(TOK_FOR) \
-    X(TOK_WHILE) \
-    X(TOK_IN) \
-    X(TOK_BREAK) \
-    X(TOK_CONTINUE) \
-    X(TOK_TRUE) \
-    X(TOK_FALSE) \
-    X(TOK_INT_LIT) \
-    X(TOK_FLOAT_LIT) \
-    X(TOK_ASSIGN) \
-    X(TOK_PLUS) \
-    X(TOK_MINUS) \
-    X(TOK_MUL) \
-    X(TOK_DIV) \
-    X(TOK_DOT_MUL) \
-    X(TOK_DOT_DIV) \
-    X(TOK_EQ) \
-    X(TOK_NEQ) \
-    X(TOK_LESS) \
-    X(TOK_LEQ) \
-    X(TOK_GREATER) \
-    X(TOK_GEQ) \
-    X(TOK_AND) \
-    X(TOK_BITWISE_AND) \
-    X(TOK_OR) \
-    X(TOK_BITWISE_OR) \
-    X(TOK_NOT) \
-    X(TOK_BITWISE_NOT) \
-    X(TOK_BITWISE_XOR) \
-    X(TOK_TRANSPOSE) \
-    X(TOK_ARROW) \
-    X(TOK_COLON) \
-    X(TOK_COMMA) \
-    X(TOK_SEMI) \
-    X(TOK_DOT) \
-    X(TOK_LPAREN) \
-    X(TOK_RPAREN) \
-    X(TOK_LBRACKET) \
-    X(TOK_RBRACKET) \
-    X(TOK_LBRACE) \
-    X(TOK_RBRACE) \
-    X(TOK_COMMENT) \
-    X(TOK_ID) \
-    X(TOK_EOF) \
-    X(TOK_FINAL_PLACEHOLDER) \
-    X(TOK_ERROR)
+#define TOKEN_LIST                                                             \
+  X(TOK_FN)                                                                    \
+  X(TOK_LET)                                                                   \
+  X(TOK_RETURN)                                                                \
+  X(TOK_PRINT)                                                                 \
+  X(TOK_PRINTLN)                                                               \
+  X(TOK_GLOBAL)                                                                \
+  X(TOK_CONST)                                                                 \
+  X(TOK_MATRIX)                                                                \
+  X(TOK_VECTOR)                                                                \
+  X(TOK_INT)                                                                   \
+  X(TOK_FLOAT)                                                                 \
+  X(TOK_BOOL)                                                                  \
+  X(TOK_IF)                                                                    \
+  X(TOK_ELSE)                                                                  \
+  X(TOK_RANGE)                                                                 \
+  X(TOK_FOR)                                                                   \
+  X(TOK_WHILE)                                                                 \
+  X(TOK_IN)                                                                    \
+  X(TOK_BREAK)                                                                 \
+  X(TOK_CONTINUE)                                                              \
+  X(TOK_TRUE)                                                                  \
+  X(TOK_FALSE)                                                                 \
+  X(TOK_INT_LIT)                                                               \
+  X(TOK_FLOAT_LIT)                                                             \
+  X(TOK_ASSIGN)                                                                \
+  X(TOK_PLUS)                                                                  \
+  X(TOK_MINUS)                                                                 \
+  X(TOK_MUL)                                                                   \
+  X(TOK_DIV)                                                                   \
+  X(TOK_DOT_MUL)                                                               \
+  X(TOK_DOT_DIV)                                                               \
+  X(TOK_EQ)                                                                    \
+  X(TOK_NEQ)                                                                   \
+  X(TOK_LESS)                                                                  \
+  X(TOK_LEQ)                                                                   \
+  X(TOK_GREATER)                                                               \
+  X(TOK_GEQ)                                                                   \
+  X(TOK_AND)                                                                   \
+  X(TOK_BITWISE_AND)                                                           \
+  X(TOK_OR)                                                                    \
+  X(TOK_BITWISE_OR)                                                            \
+  X(TOK_NOT)                                                                   \
+  X(TOK_BITWISE_NOT)                                                           \
+  X(TOK_BITWISE_XOR)                                                           \
+  X(TOK_TRANSPOSE)                                                             \
+  X(TOK_ARROW)                                                                 \
+  X(TOK_COLON)                                                                 \
+  X(TOK_COMMA)                                                                 \
+  X(TOK_SEMI)                                                                  \
+  X(TOK_DOT)                                                                   \
+  X(TOK_LPAREN)                                                                \
+  X(TOK_RPAREN)                                                                \
+  X(TOK_LBRACKET)                                                              \
+  X(TOK_RBRACKET)                                                              \
+  X(TOK_LBRACE)                                                                \
+  X(TOK_RBRACE)                                                                \
+  X(TOK_COMMENT)                                                               \
+  X(TOK_ID)                                                                    \
+  X(TOK_EOF)                                                                   \
+  X(TOK_FINAL_PLACEHOLDER)                                                     \
+  X(TOK_ERROR)
 #define X(name) name,
-enum class Token {
-    TOKEN_LIST
-};
+enum class Token { TOKEN_LIST };
 #undef X
 #define X(name) #name,
-constexpr const char* token_names[] = {
-    TOKEN_LIST
-};
+constexpr const char *token_names[] = {TOKEN_LIST};
 #undef X

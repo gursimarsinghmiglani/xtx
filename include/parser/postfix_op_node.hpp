@@ -1,7 +1,2 @@
 #pragma once
-enum class PostfixOpNode {
-    INDEX,
-    ARGUMENT,
-    DOT,
-    TRANSPOSE
-};
+enum class PostfixOpNode { INDEX, ARGUMENT, DOT, TRANSPOSE };

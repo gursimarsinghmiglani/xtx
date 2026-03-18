@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "ast.hpp"
-#include "../lexer/lexeme.hpp"
+#include "lexer/lexeme.hpp"
 struct Parser {
     std::vector<Lexeme>& lexemes;
     size_t pos;
@@ -326,7 +326,7 @@ inline std::unique_ptr<AST> Parser::parse_postfix_expr() {
     auto left = parse_primary_expr();
     while (1) {
         auto ast = std::make_unique<AST>();
-        std::unique_ptr<AST> right;
+        auto right = std::make_unique<AST>();
         if (match(Token::TOK_LBRACKET)) {
             ast->v = PostfixOpNode::INDEX;
             fill_expr_list(right);
@@ -366,9 +366,10 @@ inline std::unique_ptr<AST> Parser::parse_primary_expr() {
     } else if (match(Token::TOK_FALSE)) {
         ast->node = Node::BOOL;
         ast->v = false;
-    } else if (match(Token::TOK_ID)) {
+    } else if (check(Token::TOK_ID)) {
         ast->node = Node::ID;
         ast->v = peek().s;
+        advance();
     } else if (match(Token::TOK_LPAREN)) {
         ast = parse_expr();
         consume(Token::TOK_RPAREN);
@@ -408,6 +409,7 @@ inline std::unique_ptr<AST> Parser::parse_function_decl() {
     consume(Token::TOK_LPAREN);
     if (!match(Token::TOK_RPAREN)) {
         fill_param_list(ast);
+        consume(Token::TOK_RPAREN);
     }
     if (match(Token::TOK_ARROW)) {
         ast->children.push_back(parse_type());

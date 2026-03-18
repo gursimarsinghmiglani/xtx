@@ -41,7 +41,7 @@ expr ::= assign_expr
 
 assign_expr ::= range_expr [ ASSIGN assign_expr ]
 
-range_expr ::= logical_or_expr [ DOT DOT logical_or_expr [ DOT DOT logical_or_expr ] ]
+range_expr ::= logical_or_expr | RANGE LPAREN expr COMMA expr [ COMMA expr ] RPAREN
 
 logical_or_expr ::= logical_and_expr { OR logical_and_expr }
 
@@ -65,7 +65,7 @@ unary_expr ::= ( MINUS | NOT | BITWISE_NOT ) unary_expr
              | postfix_expr
 
 postfix_expr ::= primary_expr { LBRACKET expr_list RBRACKET 
-                              | LPAREN [ arg_list ] RPAREN 
+                              | LPAREN [ expr_list ] RPAREN 
                               | DOT ID 
                               | TRANSPOSE }
 
@@ -76,7 +76,5 @@ primary_expr ::= INT_LIT
                | ID
                | LPAREN expr RPAREN
                | LBRACKET [ expr_list ] RBRACKET
-
-arg_list ::= expr { COMMA expr }
 
 expr_list ::= expr { COMMA expr }
